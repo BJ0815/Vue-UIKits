@@ -1,18 +1,17 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <VCard msg="VCard component"></VCard>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import HelloWorld from './components/HelloWorld.vue';
+import VCard from './components/Typography/VCard';
 
 export default Vue.extend({
   name: 'App',
   components: {
-    HelloWorld,
+    VCard,
   },
 });
 </script>
