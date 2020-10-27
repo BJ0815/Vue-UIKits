@@ -1,29 +1,20 @@
-# vue2_ui_kits
+# vue2_UIKits
+
+客製化Vue UI components
+專案架構包含：
+
+- vue2
+- storybook
+- eslint
+- jest-test
+- typescript
+- Docker
 
 ## Project setup
+
 ```
-npm install
+npm ci
+# or npm install
 ```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your unit tests
-```
-npm run test:unit
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+或是使用 Docker 開發
