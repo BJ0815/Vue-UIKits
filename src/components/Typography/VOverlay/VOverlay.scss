@@ -1,0 +1,43 @@
+@import './_variables.scss';
+
+// Block
+.v-overlay {
+  align-items: center;
+  border-radius: inherit;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none; //預設不被指定為滑鼠事件
+  transition: $overlay-transition;
+}
+
+// Element
+.v-overlay__content {
+  position: relative;
+}
+
+.v-overlay__scrim {
+  border-radius: inherit;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  transition: inherit;
+  // will-change: opacity; // 提身渲染效能，但不能用於太多元素上，ie 不支援
+}
+
+// Modifier
+.v-overlay--absolute {
+  position: absolute;
+}
+
+.v-overlay--active {
+  pointer-events: auto; //觸發時重新指定，給後續動作使用
+}

@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <div class="container">
-      <img src="./src/assets/logo.png" alt="logo">
+      <img src="@/assets/logo.png" alt="logo">
+      <button @click="value = !value">Toggle</button>
+      <VOverlay :value="value" :absolute="absolute">OPEN !!!</VOverlay>
     </div>
   </div>
 </template>
@@ -9,8 +11,19 @@
 <script lang="ts">
 import Vue from 'vue';
 
+import VOverlay from '@/components/Typography/VOverlay';
+
 export default Vue.extend({
   name: 'App',
+  data() {
+    return {
+      value: false,
+      absolute: true,
+    };
+  },
+  components: {
+    VOverlay,
+  },
 });
 </script>
 
