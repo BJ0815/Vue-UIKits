@@ -6,13 +6,24 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "inspect": " vue-cli-service inspect",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "core-js": "^3.6.5",
-    "vue": "^2.6.11"
+    "vue": "^2.6.11",
+    "@storybook/addon-actions": "^6.0.27",
+    "@storybook/addon-essentials": "^6.0.27",
+    "@storybook/addon-links": "^6.0.27",
+    "@storybook/vue": "^6.0.27"
   },
   "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@storybook/addon-controls": "^6.0.27",
+    "@storybook/addon-viewport": "^6.0.27",
+    "@storybook/preset-scss": "^1.0.3",
     "@types/jest": "^24.0.19",
     "@typescript-eslint/eslint-plugin": "^2.33.0",
     "@typescript-eslint/parser": "^2.33.0",
@@ -24,11 +35,15 @@
     "@vue/eslint-config-airbnb": "^5.0.2",
     "@vue/eslint-config-typescript": "^5.0.2",
     "@vue/test-utils": "^1.0.3",
+    "babel-loader": "^8.1.0",
+    "css-loader": "^5.0.0",
     "eslint": "^6.7.2",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-vue": "^6.2.2",
+    "react-is": "^17.0.1",
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
+    "style-loader": "^2.0.0",
     "typescript": "~3.9.3",
     "vue-template-compiler": "^2.6.11"
   }
