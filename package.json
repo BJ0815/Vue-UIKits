@@ -6,7 +6,9 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
-    "lint": "vue-cli-service lint",
+    "lint": "npm run lint:script && npm run lint:style",
+    "lint:script": "vue-cli-service lint",
+    "lint:style": "stylelint --cache src/**/*.{vue,scss} --fix",
     "inspect": " vue-cli-service inspect",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
@@ -45,6 +47,29 @@
     "sass-loader": "^8.0.2",
     "style-loader": "^2.0.0",
     "typescript": "~3.9.3",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "^2.6.11",
+    "lint-staged": "^10.2.0",
+    "stylelint": "^13.3.3",
+    "stylelint-config-recommended-scss": "^4.2.0",
+    "stylelint-order": "^4.0.0",
+    "stylelint-scss": "^3.17.1",
+    "stylelint-webpack-plugin": "^1.2.3"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.vue": [
+      "npm run lint",
+      "git add"
+    ],
+    "*.scss": [
+      "npm run lint:style",
+      "git add"
+    ],
+    "*.{js,ts}": [
+      "npm run lint:script",
+      "git add"
+    ]
   }
 }

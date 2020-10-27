@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="container">
-      <img src="@/assets/logo.png" alt="logo">
+      <img src="@/assets/logo.png" alt="logo" />
       <button @click="value = !value">Toggle</button>
       <VOverlay :value="value" :absolute="absolute">OPEN !!!</VOverlay>
     </div>
@@ -33,21 +33,22 @@ export default Vue.extend({
   padding: 0;
   box-sizing: border-box;
 }
+
 #app {
+  height: 100vh;
   font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .container {
-  max-width: 50%;
-  height: 100%;
-  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 0 auto;
+  max-width: 50%;
+  height: 100%;
 }
 </style>
