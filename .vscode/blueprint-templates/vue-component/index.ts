@@ -10,6 +10,6 @@ import Vue, { VNode } from "vue";
 export default Vue.extend({
   name: "{{ snakeCase name }}",
   render(h): VNode {
-    return h("div", [this.$slot.default]);
+    return h("div", [this.$slots.default]);
   }
 });
