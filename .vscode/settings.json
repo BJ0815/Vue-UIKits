@@ -61,5 +61,4 @@
   "codemetrics.basics.ComplexityLevelExtreme": 30,
   "scss.validate": false,
   "html.format.endWithNewline": true,
-  "tailwindCSS.emmetCompletions": true
 }
