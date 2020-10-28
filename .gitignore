@@ -2,6 +2,8 @@
 node_modules
 /dist
 
+/dev/CustomGarden.vue
+
 
 # local env files
 .env.local
