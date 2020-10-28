@@ -1,15 +1,15 @@
 // Styles
-import "./{{ pascalCase name }}.scss";
+import './{{ pascalCase name }}.scss';
 
 // Types
-import Vue, { VNode } from "vue";
+import Vue, { VNode } from 'vue';
 
 /**
  * Dialogs UI component
  */
 export default Vue.extend({
-  name: "{{ snakeCase name }}",
+  name: '{{ snakeCase name }}',
   render(h): VNode {
-    return h("div", [this.$slots.default]);
+    return h('div', [this.$slots.default]);
   }
 });
