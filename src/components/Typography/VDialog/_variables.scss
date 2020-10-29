@@ -1,0 +1,23 @@
+$transition: () !default;
+$transition: map-merge(
+  (
+    'fast-out-slow-in': cubic-bezier(0.4, 0, 0.2, 1),
+    'linear-out-slow-in': cubic-bezier(0, 0, 0.2, 1),
+    'fast-out-linear-in': cubic-bezier(0.4, 0, 1, 1),
+    'ease-in-out': cubic-bezier(0.4, 0, 0.6, 1),
+    'fast-in-fast-out': cubic-bezier(0.25, 0.8, 0.25, 1),
+    'swing': cubic-bezier(0.25, 0.8, 0.5, 1),
+  ),
+  $transition
+);
+
+$dialog-border-radius: 4px !default;
+$dialog-card-subtitle-padding: 0 24px 20px !default;
+$dialog-card-text-padding: 0 24px 20px !default;
+$dialog-card-title-font-size: 1.2rem !default;
+$dialog-card-title-font-weight: 400 !default;
+$dialog-card-title-letter-spacing: 0.125rem !default;
+$dialog-card-title-padding: 16px 24px 10px !default;
+$dialog-elevation: 24 !default;
+$dialog-margin: 24px !default;
+$dialog-max-height: 90% !default;
