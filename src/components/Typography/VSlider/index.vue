@@ -42,6 +42,12 @@ export default {
         transform: `translate3d(${this.posX}%, 0, 0)`,
       };
     },
+    ArrowShowTrigger() {
+      return (this.maxCount > this.showLimit) && this.showArrow;
+    },
+    DotShowTrigger() {
+      return this.maxCount > 1 && this.showDot;
+    },
   },
   methods: {
     transitionHandler() {

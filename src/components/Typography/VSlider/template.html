@@ -7,7 +7,7 @@
   @touchend="endHandler"
   @mouseleave="endHandler"
 >
-  <div v-if="(maxCount>showLimit) && showArrow">
+  <div v-if="ArrowShowTrigger">
     <div class="VSlider__control left" @click="change(-1)"></div>
     <div class="VSlider__control right" @click="change(1)"></div>
   </div>
@@ -22,7 +22,7 @@
     </div>
   </div>
 
-  <div class="VSlider__sliderDot" v-if="maxCount > 1 && showDot">
+  <div class="VSlider__sliderDot" v-if="DotShowTrigger">
     <span
       v-for="(item, index) in maxCount"
       :key="index"
