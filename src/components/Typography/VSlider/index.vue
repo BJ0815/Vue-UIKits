@@ -26,6 +26,7 @@ export default {
   data() {
     return {
       now: 1,
+      transitionNow: 1,
       isDisable: false,
       transitionTime: 0,
       startX: 0,
@@ -34,7 +35,7 @@ export default {
   },
   computed: {
     posX() {
-      return this.now * (100 / this.showLimit) * -1;
+      return this.transitionNow * (100 / this.showLimit) * -1;
     },
     styleObj() {
       return {
@@ -54,25 +55,32 @@ export default {
       this.isDisable = false;
       this.transitionTime = 0;
       if (this.posX === 0) {
-        this.now = this.maxCount;
+        this.transitionNow = this.maxCount;
       } else if (
         this.posX
         === (this.maxCount + 1) * (100 / this.showLimit) * -1
       ) {
-        this.now = 1;
+        this.transitionNow = 1;
       }
     },
     change(val) {
       if (!this.isDisable) {
         this.isDisable = true;
         this.transitionTime = 500;
+        this.transitionNow += val;
         this.now += val;
+        if (this.now === 0) {
+          this.now = this.maxCount;
+        } else if (this.now === this.maxCount + 1) {
+          this.now = 1;
+        }
       }
     },
     dotChange(val) {
       if (!this.isDisable) {
         this.isDisable = true;
         this.transitionTime = 500;
+        this.transitionNow = val + 1;
         this.now = val + 1;
       }
     },
