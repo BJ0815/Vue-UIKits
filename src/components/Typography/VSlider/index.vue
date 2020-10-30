@@ -112,5 +112,5 @@ export default {
 };
 </script>
 
-<template src="./template.html" />
-<style lang="scss" src="./style.scss" />
+<template src="./template.html"></template>
+<style lang="scss" src="./style.scss"></template>
