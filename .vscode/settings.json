@@ -1,4 +1,5 @@
 {
+  "vetur.languageFeatures.codeActions": false,
   "vetur.validation.script": false,
   "vetur.validation.template": false,
   "vetur.validation.style": false,
