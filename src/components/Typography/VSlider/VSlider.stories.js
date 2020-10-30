@@ -5,6 +5,12 @@ export default {
   component: VSlider,
   argTypes: {
     maxCount: { control: { type: 'number' } },
+    showLimit: {
+      control: {
+        disable: true,
+        type: 'number',
+      },
+    },
   },
   decorators: [],
 };
