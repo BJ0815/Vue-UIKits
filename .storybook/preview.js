@@ -42,6 +42,6 @@ export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
   viewport: {
     viewports: {...MINIMAL_VIEWPORTS, ...newViewports},
-    defaultViewport: "iphone6"
+    defaultViewport: "Mobile"
   }
 };
