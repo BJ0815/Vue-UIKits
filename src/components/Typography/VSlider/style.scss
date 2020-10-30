@@ -1,0 +1,71 @@
+.VSlider {
+  position: relative;
+  margin: 0px 20px;
+  width: calc(100% - 40px);
+  > .VSlider__items {
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+    width: 90%;
+  }
+  &__container {
+    display: flex;
+    user-select: none;
+    transition-timing-function: linear;
+    > div {
+      flex-shrink: 0;
+    }
+  }
+  &__control {
+    position: absolute;
+    top: calc(50% - 15px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    color: #a0a0a0;
+    background-color: #eeeeee;
+    border-radius: 50px;
+    z-index: 1;
+    cursor: pointer;
+    transform: translate3d(0, -50%, 0);
+    &:hover {
+      color: #7e7e7e;
+      box-shadow: 0 3px 0 #ccc;
+    }
+    &.left {
+      left: 0px;
+    }
+    &.right {
+      right: 0px;
+    }
+  }
+  &__sliderDot {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 17px;
+    cursor: pointer;
+    span {
+      display: block;
+      margin: 5px;
+      width: 13px;
+      height: 13px;
+      background-color: #eeeeee;
+      border-radius: 50%;
+      &:hover,
+      &.active {
+        background-color: #4a90e2;
+      }
+    }
+  }
+}
+
+#root {
+  width: 100%;
+}
+
+// $desktopHD | $desktop | $tablet | $mobile
+// @include device($desktopHD) {}
