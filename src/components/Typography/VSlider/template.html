@@ -1,0 +1,33 @@
+<div
+  class="VSlider"
+  @mousedown="startHandler"
+  @mouseup="endHandler"
+  @touchstart="startHandler"
+  @touchmove="moveHandler"
+  @touchend="endHandler"
+  @mouseleave="endHandler"
+>
+  <div v-if="ArrowShowTrigger">
+    <div class="VSlider__control left" @click="change(-1)"></div>
+    <div class="VSlider__control right" @click="change(1)"></div>
+  </div>
+
+  <div class="VSlider__items">
+    <div
+      class="VSlider__container"
+      @transitionend="transitionHandler"
+      :style="styleObj"
+    >
+      <slot></slot>
+    </div>
+  </div>
+
+  <div class="VSlider__sliderDot" v-if="DotShowTrigger">
+    <span
+      v-for="(item, index) in maxCount"
+      :key="index"
+      :class="{active:index===now-1}"
+      @click="dotChange(index)"
+    ></span>
+  </div>
+</div>

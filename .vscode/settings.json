@@ -1,0 +1,64 @@
+{
+  "vetur.validation.script": false,
+  "vetur.validation.template": false,
+  "vetur.validation.style": false,
+  "prettier.singleQuote": true,
+  "prettier.semi": false,
+  "prettier.vueIndentScriptAndStyle": false,
+  "editor.wordWrapColumn": 80,
+  "editor.wordWrap": "wordWrapColumn",
+  "editor.formatOnSave": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.fixAll.eslint": true
+  },
+  "javascript.format.enable": false,
+  "stylelint.autoFixOnSave": true,
+  "eslint.alwaysShowStatus": true,
+  "eslint.options": {
+    "extensions": [".html", ".js", ".vue"]
+  },
+  "eslint.validate": ["html","vue","javascript"],
+  "cSpell.words": [
+    "Nuxt",
+    "Vuex",
+    "mixins",
+    "nuxtjs",
+    "stylelint",
+    "unregister"
+  ],
+  "cSpell.ignorePaths": [
+    "**/package.json",
+    "**/package-lock.json",
+    "**/node_modules/**",
+    "**/vscode-extension/**",
+    "**/.git/objects/**",
+    ".vscode"
+  ],
+  "[html]": {
+    "editor.rulers": [80, 120],
+    "editor.formatOnSave": true
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[scss]": {
+    "editor.formatOnSave": true
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "blueprint.templatesPath": [".vscode/blueprint-templates"],
+  "path-intellisense.mappings": {
+    "@": "${workspaceRoot}/src",
+    "~": "${workspaceRoot}/src"
+  },
+  "codemetrics.basics.ComplexityLevelNormal": 10,
+  "codemetrics.basics.ComplexityLevelHigh": 20,
+  "codemetrics.basics.ComplexityLevelExtreme": 30,
+  "scss.validate": false,
+  "html.format.endWithNewline": true,
+}

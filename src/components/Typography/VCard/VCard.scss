@@ -1,55 +1,50 @@
 @import './variables.scss';
 
-
 %ellipsis {
+  overflow: hidden;
   text-overflow: ellipsis;
 
   /* Required for text-overflow to do anything */
   white-space: nowrap;
-  overflow: hidden;
 }
 
 %clamp {
-  text-overflow: ellipsis;
+  display: -webkit-box;
 
   /* Required for text-overflow to do anything */
   overflow: hidden;
-  display: -webkit-box;
+  text-overflow: ellipsis;
+  white-space: normal;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-  white-space: normal;
 }
 
 // Block
 .v-card {
-  border-width: $card-outlined-border-width;
+  position: relative;
   display: block;
+  min-width: 320px;
   max-width: 100%;
-  outline: none;
   text-decoration: none;
+  white-space: $card-white-space;
+  color: rgba(0, 0, 0, 0.87);
+  background-color: #fff;
+  border-width: $card-outlined-border-width;
+  border-radius: 4px;
+  outline: none;
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14),
+    0 1px 10px 0 rgba(0, 0, 0, 0.12);
   transition-property: box-shadow, opacity;
   overflow-wrap: $card-overflow-wrap;
-  position: relative;
-  white-space: $card-white-space;
-  border-radius: 4px;
-  background-color: #fff;
-  color: rgba(0,0,0,.87);
-  box-shadow: 0 2px 4px -1px rgba(0,0,0,.2),0 4px 5px 0 rgba(0,0,0,.14),0 1px 10px 0 rgba(0,0,0,.12);
-  min-width: 320px;
 }
 
-
 .v-card__title {
-  padding: $card-title-padding;
-}
-
-
-.v-card__title {
-  align-items: center;
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
+  padding: $card-title-padding;
   font-size: $card-title-font-size;
   font-weight: $card-title-font-weight;
+  flex-wrap: wrap;
   letter-spacing: $card-title-letter-spacing;
   line-height: $card-title-line-height;
   word-break: $card-title-word-break;
@@ -57,21 +52,18 @@
 
 .v-card__footer {
   display: flex;
-  padding: $card-actions-padding;
   align-items: center;
+  padding: $card-actions-padding;
 }
 
 .v-card__text {
-  text-align: left;
   padding: $card-actions-padding;
   font-size: $card-text-font-size;
   font-weight: $card-text-font-weight;
+  text-align: left;
   line-height: $card-text-line-height;
   letter-spacing: $card-text-letter-spacing;
-
   * {
     @extend %clamp;
   }
 }
-
-

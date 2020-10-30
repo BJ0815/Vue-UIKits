@@ -1,30 +1,19 @@
 <template>
   <div id="app">
     <div class="container">
-      <img src="@/assets/logo.png" alt="logo" />
-      <button @click="value = !value">Toggle</button>
-      <VOverlay :value="value" :absolute="absolute">OPEN !!!</VOverlay>
+      <CustomGarden></CustomGarden>
     </div>
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
+<script>
+import CustomGarden from './CustomGarden.vue';
 
-import VOverlay from '@/components/Typography/VOverlay';
-
-export default Vue.extend({
-  name: 'App',
-  data() {
-    return {
-      value: false,
-      absolute: true,
-    };
-  },
+export default {
   components: {
-    VOverlay,
+    CustomGarden,
   },
-});
+};
 </script>
 
 <style lang="scss">
