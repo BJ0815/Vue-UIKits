@@ -3,7 +3,7 @@ node_modules
 /dist
 
 /dev/CustomGarden.vue
-
+package-lock.json
 
 # local env files
 .env.local
