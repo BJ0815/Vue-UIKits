@@ -1,0 +1,16 @@
+<div class="VTip" @mouseenter="trigger" @mouseleave="show = false">
+  <slot name="target"></slot>
+  <transition>
+    <div
+      v-show="show"
+      ref="VTip_content"
+      class="VTip_content"
+      :style="contentStyle"
+      @mouseleave="show = !float"
+      @mouseenter="show = true"
+    >
+      <slot>{{ content }}</slot>
+      <div class="VTip_arrow" :style="arrowStyle"></div>
+    </div>
+  </transition>
+</div>

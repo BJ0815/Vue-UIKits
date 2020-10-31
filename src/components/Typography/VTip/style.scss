@@ -1,0 +1,36 @@
+.VTip {
+  position: relative;
+  display: inline-block;
+  &_content {
+    position: absolute;
+    padding: 6px 12px;
+    width: 310px;
+    max-width: 310px;
+    font-size: 14px;
+    text-align: left;
+    border-radius: 4px;
+    z-index: 5000;
+    line-height: 20px;
+    cursor: default;
+  }
+  &_arrow {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 6px 8px 6px;
+  }
+}
+
+.v-enter-active {
+  transition: opacity 0.2s linear;
+}
+
+.v-leave-active {
+  transition: opacity 0.3s linear;
+}
+
+.v-enter,
+.v-leave-to {
+  opacity: 0;
+}
