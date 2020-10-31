@@ -2,21 +2,17 @@
 export default {
   name: 'VTip',
   props: {
-    float: {
-      type: Boolean,
-      default: true,
-    },
-    width: {
-      type: [Number, String],
-      default: null,
+    content: {
+      type: String,
+      default: '',
     },
     placement: {
       type: String,
       default: 'top-left',
     },
-    content: {
-      type: String,
-      default: '',
+    maxWidth: {
+      type: [Number, String],
+      default: null,
     },
     backgroundColor: {
       type: String,
@@ -39,36 +35,24 @@ export default {
     };
   },
   mounted() {
-    if (this.float) {
-      this.$nextTick(() => {
-        document.body.appendChild(this.$refs.VTip_content);
-      });
-    }
+    this.$nextTick(() => {
+      document.body.appendChild(this.$refs.VTip_content);
+    });
   },
   beforeDestroy() {
-    if (this.float) {
-      document.body.removeChild(this.$refs.VTip_content);
-    }
+    document.body.removeChild(this.$refs.VTip_content);
   },
   computed: {
     arrowDirection() {
-      const direction = this.opposite[this.placement.split('-')[0]];
-      return direction;
+      return this.opposite[this.placement.split('-')[0]];
     },
     arrowAlign() {
-      const align = this.placement.split('-')[1];
-      return align;
+      return this.placement.split('-')[1];
     },
     contentStyle() {
-      let style;
-      const {
-        width, float, backgroundColor, color,
-      } = this;
-      const widthStr = typeof width === 'number' ? `${width}px` : width;
-      const whiteSpace = float ? '' : 'nowrap';
-      if (widthStr) style = { maxWidth: widthStr, width: widthStr, whiteSpace };
-      else if (!widthStr && float) style = { width: 'unset' };
-      return { backgroundColor, color, ...style };
+      const { maxWidth, backgroundColor, color } = this;
+      const maxWidthStr = this.isNum(maxWidth) ? `${maxWidth}px` : maxWidth;
+      return { maxWidth: maxWidthStr || 'unset', backgroundColor, color };
     },
     arrowStyle() {
       const { arrowDirection, arrowAlign, arrowRotate } = this;
@@ -90,6 +74,9 @@ export default {
     },
   },
   methods: {
+    isNum(value) {
+      return typeof value === 'number';
+    },
     getPosition(element) {
       let el = element;
       let x = 0;
@@ -106,8 +93,7 @@ export default {
       this.$nextTick(() => {
         const { target } = $event;
         const tipContent = this.$refs.VTip_content;
-        let x = this.float ? this.getPosition(target).x : 0;
-        let y = this.float ? this.getPosition(target).y : 0;
+        let { x, y } = this.getPosition(target);
         switch (this.arrowDirection) {
           case 'top':
             y += target.clientHeight + 8;

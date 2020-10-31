@@ -4,29 +4,28 @@ export default {
   title: 'VTip',
   component: VTip,
   argTypes: {
-    width: { control: { type: 'text' } },
+    content: { control: { type: 'text' } },
     placement: {
       control: {
         type: 'select',
         options: ['top-left', 'top-center', 'top-right', 'bottom-left', 'bottom-center', 'bottom-right', 'right-top', 'right-middle', 'right-bottom', 'left-top', 'left-middle', 'left-bottom'],
       },
     },
-    content: { control: { type: 'text' } },
+    maxWidth: { control: { type: 'text' } },
     backgroundColor: { control: { type: 'color' } },
     color: { control: { type: 'color' } },
-    float: { table: { disable: true } },
   },
 };
 
 const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: { VTip },
-  template: `<div style="text-align: center">
+  template: `
+  <div style="text-align: center">
     <VTip
-      :float="float"
-      :width="width"
-      :placement="placement"
       :content="content"
+      :placement="placement"
+      :maxWidth="maxWidth"
       :backgroundColor="backgroundColor"
       :color="color"
     >
@@ -37,16 +36,9 @@ const Template = (args, { argTypes }) => ({
   </div>`,
 });
 
-export const Float = Template.bind({});
-Float.args = {
-  float: true,
+export const Default = Template.bind({});
+Default.args = {
+  content: '把假內容輕鬆帶過，顯然並不適合。我們可以很篤定的說，這需要花很多時間來嚴謹地論證。斯特恩曾經說過，對知識的渴望如同對財富的追求，越追求，慾望就越強烈。這句話幾乎解讀出了問題的根本。',
   placement: 'top-left',
-  content: 'This is a float tip! Positioned relative to body.',
-};
-export const Fixed = Template.bind({});
-Fixed.args = {
-  float: false,
-  width: 'unset',
-  placement: 'top-left',
-  content: 'This is a fixed tip! Positioned relative to element.',
+  maxWidth: '300px',
 };
