@@ -27,6 +27,8 @@ export default {
     return {
       show: false,
       lastParent: null,
+      offsetX: '0px',
+      offsetY: '0px',
       arrowRotate: {
         top: 0, bottom: 180, right: 90, left: -90,
       },
@@ -57,25 +59,36 @@ export default {
     contentStyle() {
       const { maxWidth, backgroundColor, color } = this;
       const maxWidthStr = this.isNum(maxWidth) ? `${maxWidth}px` : maxWidth;
-      return { maxWidth: maxWidthStr || 'unset', backgroundColor, color };
+      return {
+        top: this.offsetY,
+        left: this.offsetX,
+        maxWidth: maxWidthStr || 'unset',
+        backgroundColor,
+        color,
+      };
     },
     arrowStyle() {
       const { arrowDirection, arrowAlign, arrowRotate } = this;
       const rotate = arrowRotate[arrowDirection];
-      let style = `${arrowDirection}:-8px; `;
+      const style = { borderBottomColor: this.backgroundColor };
 
       switch (arrowAlign) {
         case 'middle':
-          style += `top: 50%; transform: translateY(-50%)`;
+          style.top = '50%';
+          style.transform = 'translateY(-50%) ';
           break;
         case 'center':
-          style += `left: 50%; transform: translateX(-50%)`;
+          style.left = '50%';
+          style.transform = 'translateX(-50%) ';
           break;
         default:
-          style += `${arrowAlign}: 4px; transform:`;
+          style[arrowAlign] = '4px';
+          style.transform = '';
           break;
       }
-      return `${style} rotate(${rotate}deg); border-color: transparent transparent ${this.backgroundColor} transparent;`;
+      style.transform += `rotate(${rotate}deg)`;
+      style[arrowDirection] = '-8px';
+      return style;
     },
   },
   methods: {
@@ -144,8 +157,8 @@ export default {
           default:
             break;
         }
-        tipContent.style.left = `${x}px`;
-        tipContent.style.top = `${y}px`;
+        this.offsetX = `${x}px`;
+        this.offsetY = `${y}px`;
       });
     },
   },

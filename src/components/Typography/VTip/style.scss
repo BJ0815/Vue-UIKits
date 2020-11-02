@@ -17,18 +17,19 @@
     height: 0;
     border-style: solid;
     border-width: 0 6px 8px 6px;
+    border-color: transparent;
   }
 }
 
-.v-enter-active {
+.VTip_transition-enter-active {
   transition: opacity 0.2s linear;
 }
 
-.v-leave-active {
+.VTip_transition-leave-active {
   transition: opacity 0.2s linear 0.3s;
 }
 
-.v-enter,
-.v-leave-to {
+.VTip_transition-enter,
+.VTip_transition-leave-to {
   opacity: 0;
 }
