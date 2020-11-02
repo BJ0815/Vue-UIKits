@@ -26,6 +26,7 @@ export default {
   data() {
     return {
       show: false,
+      lastParent: null,
       arrowRotate: {
         top: 0, bottom: 180, right: 90, left: -90,
       },
@@ -36,11 +37,15 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
-      document.body.appendChild(this.$refs.VTip_content);
+      const tooltipContent = this.$refs.VTip_content;
+      const tooltipContainer = this.$refs.VTip;
+      this.lastParent = this.getLastOffset(tooltipContainer);
+      this.lastParent.appendChild(tooltipContent);
     });
   },
   beforeDestroy() {
-    document.body.removeChild(this.$refs.VTip_content);
+    const tooltipContent = this.$refs.VTip_content;
+    this.lastParent.removeChild(tooltipContent);
   },
   computed: {
     arrowDirection() {
@@ -76,6 +81,11 @@ export default {
   methods: {
     isNum(value) {
       return typeof value === 'number';
+    },
+    getLastOffset(element) {
+      let el = element;
+      while (el.offsetParent) el = el.offsetParent;
+      return el;
     },
     getPosition(element) {
       let el = element;
