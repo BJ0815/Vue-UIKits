@@ -189,52 +189,39 @@ export default {
       return this.formatMonthListHelper(
         this.previousMonthDateList,
         this.previous.currentMonth
-      ).map((item) => {
-        const equalFirst = stringifyDate(this.startPickDate) === stringifyDate(item);
-        const equalLast = stringifyDate(this.endPickDate) === stringifyDate(item);
-        const active = equalFirst || equalLast;
-        return {
-          ...item,
-          active,
-          equalFirst,
-          equalLast,
-          isInRange:
-            !item.disabled
-            && !active
-            && !getIsDateBeHindCompareDate(this.startPickDate, item)
-            && getIsDateBeHindCompareDate(this.endPickDate, item),
-        };
-      });
+      );
     },
     calcPresentMonthList() {
       return this.formatMonthListHelper(
         this.presentMonthDateList,
         this.present.currentMonth
-      ).map((item) => {
-        const equalFirst = stringifyDate(this.startPickDate) === stringifyDate(item);
-        const equalLast = stringifyDate(this.endPickDate) === stringifyDate(item);
-        const active = equalFirst || equalLast;
-        return {
-          ...item,
-          active,
-          equalFirst,
-          equalLast,
-          isInRange:
-            !item.disabled
-            && !active
-            && !getIsDateBeHindCompareDate(this.startPickDate, item)
-            && getIsDateBeHindCompareDate(this.endPickDate, item),
-        };
-      });
+      );
     },
   },
   methods: {
     formatMonthListHelper(ary, currentMonth) {
-      return ary.map((item) => ({
-        ...item,
-        disabled: item.month !== currentMonth,
-        isToday: stringifyDate(item) === stringifyDate(this.now),
-      }));
+      return ary.map((item) => {
+        const disabled = item.month !== currentMonth;
+        const equalFirst = stringifyDate(this.startPickDate) === stringifyDate(item);
+        const equalLast = stringifyDate(this.endPickDate) === stringifyDate(item);
+        const active = equalFirst || equalLast;
+        const isToday = stringifyDate(item) === stringifyDate(this.now);
+        const isInRange = (
+          !disabled
+          && !active
+          && !getIsDateBeHindCompareDate(this.startPickDate, item)
+          && getIsDateBeHindCompareDate(this.endPickDate, item)
+        );
+        return {
+          ...item,
+          disabled,
+          active,
+          equalFirst,
+          equalLast,
+          isInRange,
+          isToday,
+        };
+      });
     },
     setCurrnetDate(type, year, month, date) {
       const obj = {
