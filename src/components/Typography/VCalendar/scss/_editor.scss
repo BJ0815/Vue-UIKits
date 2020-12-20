@@ -1,0 +1,71 @@
+.VCalendar {
+  position: relative;
+  padding: 4px 10px;
+  height: 40px;
+  background-color: rgb(243, 243, 243);
+  border: 1px solid rgb(243, 243, 243);
+  border-radius: 6px;
+  box-sizing: border-box;
+  &.active {
+    border: 1px solid #409eff;
+  }
+  &__input {
+    display: flex;
+    &__start,
+    &__end {
+      overflow: hidden;
+      padding: 7px 14px;
+      max-width: 100%;
+      font-size: 12px;
+      text-align: center;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      background-color: rgb(243, 243, 243);
+      border: 0;
+      outline: none;
+      box-sizing: border-box;
+      appearance: none;
+      flex: 1 0 auto;
+      line-height: 16px;
+      letter-spacing: 1.5px;
+    }
+    &__tilde {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      color: #b5abab;
+      transform: translate(-50%, -50%);
+    }
+  }
+  &__panel__wrapper {
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    display: flex;
+    box-shadow: 0 0 4px 0 #a9a9a9;
+    transform: translateY(100%);
+    transform-origin: top;
+    &::before {
+      position: absolute;
+      top: -5px;
+      left: 10px;
+      display: inline-block;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 10px 10px 0 0;
+      border-color: #fff #fff transparent transparent;
+      opacity: 0;
+      z-index: -1;
+      box-shadow: -1px -1px 2px #d4d1d1;
+      transition: 0.3s opacity ease-in-out;
+      content: '';
+      transform: rotate(45deg);
+    }
+  }
+  &.active &__panel__wrapper {
+    &::before {
+      opacity: 1;
+    }
+  }
+}
