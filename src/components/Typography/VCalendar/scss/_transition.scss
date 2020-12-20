@@ -1,0 +1,16 @@
+.panel-enter-active,
+.panel-leave-active {
+  transition: 0.3s transform ease, 0.2s opacity ease;
+}
+
+.panel-enter,
+.panel-leave-to {
+  opacity: 0;
+  transform: translateY(100%) scaleY(0) !important;
+}
+
+.panel-leave,
+.panel-enter-to {
+  opacity: 1;
+  transform: translateY(100%) scaleY(1) !important;
+}
